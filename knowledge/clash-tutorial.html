@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clash完全使用教程：从安装到进阶配置 | 2026最新完整指南</title>
+  <meta name="description" content="Clash使用完整教程：详解Windows/Mac/Android版Clash安装、机场订阅导入、规则分流配置、节点测速、Clash Premium高级功能。2000字深度教程，从入门到精通。">
+
+  <!-- SEO & Geo Optimization (clash-vpns.com) -->
+  <link rel="canonical" href="https://clash-vpns.com/knowledge/clash-tutorial.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://clash-vpns.com/knowledge/clash-tutorial.html">
+  <link rel="alternate" hreflang="x-default" href="https://clash-vpns.com/knowledge/clash-tutorial.html">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="geo.region" content="HK">
+  <meta name="geo.placename" content="Global / Asia Pacific">
+  <meta name="content-language" content="zh-CN">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:site_name" content="Clash-VPNs 机场测评网">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Clash完全使用教程：从安装到进阶配置 | 2026最新完整指南">
+  <meta property="og:description" content="Clash使用完整教程：详解Windows/Mac/Android版Clash安装、机场订阅导入、规则分流配置、节点测速、Clash Premium高级功能。2000字深度教程，从入门到精通。">
+  <meta property="og:url" content="https://clash-vpns.com/knowledge/clash-tutorial.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:image" content="https://clash-vpns.com/og-image.png">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Clash完全使用教程：从安装到进阶配置 | 2026最新完整指南">
+  <meta name="twitter:description" content="Clash使用完整教程：详解Windows/Mac/Android版Clash安装、机场订阅导入、规则分流配置、节点测速、Clash Premium高级功能。2000字深度教程，从入门到精通。">
+  <meta name="twitter:image" content="https://clash-vpns.com/og-image.png">
+
+  <!-- GEO & Generative AI Search JSON-LD Schema -->
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://clash-vpns.com/knowledge/clash-tutorial.html"
+    },
+    "headline": "Clash完全使用教程：从安装到进阶配置",
+    "description": "Clash使用完整教程：详解Windows/Mac/Android版Clash安装、机场订阅导入、规则分流配置、节点测速、Clash Premium高级功能。2000字深度教程，从入门到精通。",
+    "inLanguage": "zh-CN",
+    "author": {
+      "@type": "Organization",
+      "name": "Clash-VPNs 测评组"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Clash-VPNs 机场测评网",
+      "url": "https://clash-vpns.com"
+    },
+    "datePublished": "2026-01-01T08:00:00+08:00",
+    "dateModified": "2026-09-21T08:00:00+08:00"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "首页",
+        "item": "https://clash-vpns.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "知识库",
+        "item": "https://clash-vpns.com/about/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Clash完全使用教程：从安装到进阶配置",
+        "item": "https://clash-vpns.com/knowledge/clash-tutorial.html"
+      }
+    ]
+  }
+]
+  </script>
+
+  <meta name="keywords" content="Clash教程,Clash使用方法,Clash配置教程,Clash for Windows,Clash订阅导入,Clash规则配置,Clash节点测速,代理工具教程,科学上网教程,Clash分流规则">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-primary: #FAFBFC;
+      --bg-secondary: #FFFFFF;
+      --bg-code: #F3F4F6;
+      --border: #E5E7EB;
+      --text-primary: #0F172A;
+      --text-secondary: #64748B;
+      --text-muted: #94A3B8;
+      --accent: #10B981;
+      --accent-hover: #059669;
+      --accent-light: #D1FAE5;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+      font-weight: 400;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .article-container {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    .article-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .category-badge {
+      padding: 0.4rem 1rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .article-date {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .article-header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .article-excerpt {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .article-content {
+      font-size: 1.05rem;
+      line-height: 1.9;
+    }
+
+    .article-content h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1.2rem;
+      color: var(--text-primary);
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .article-content h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 2rem 0 1rem;
+      color: var(--text-primary);
+    }
+
+    .article-content p {
+      margin-bottom: 1.2rem;
+      color: var(--text-secondary);
+    }
+
+    .article-content ul, .article-content ol {
+      margin: 1.2rem 0 1.2rem 2rem;
+    }
+
+    .article-content li {
+      margin-bottom: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .article-content strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .tip-box {
+      background: var(--accent-light);
+      border-left: 4px solid var(--accent);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .tip-box strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    code {
+      background: var(--bg-code);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.9em;
+      color: var(--text-primary);
+    }
+
+    pre {
+      background: var(--bg-code);
+      padding: 1.2rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 3rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .back-link:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      margin-top: 5rem;
+      text-align: center;
+    }
+
+    footer p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .article-header h1 {
+        font-size: 1.8rem;
+      }
+
+      .article-content {
+        font-size: 1rem;
+      }
+
+      .article-content h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="logo">机场测评</a>
+      <ul class="nav-links">
+        <li><a href="../airport-reviews/index.html">全部测评</a></li>
+        <li><a href="../rankings/index.html">推荐榜单</a></li>
+        <li><a href="../ai-tools.html">AI工具</a></li>
+        <li><a href="../tutorials/index.html">使用教程</a></li>
+        <li><a href="../about/index.html">知识库</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <article class="article-container">
+    <header class="article-header">
+      <div class="article-meta">
+        <span class="category-badge">教程</span>
+        <span class="article-date">2026年9月1日</span>
+      </div>
+      <h1>Clash完全使用教程：从安装到进阶配置</h1>
+      <p class="article-excerpt">Clash是目前最流行、功能最强大的代理工具之一。本文将从零开始，详细讲解Clash的安装、订阅导入、规则配置、节点测速等核心功能，帮助新手快速上手，同时覆盖进阶配置技巧，让老手也能深度优化使用体验。</p>
+    </header>
+
+    <div class="article-content">
+      <h2>一、Clash是什么</h2>
+      <p>Clash是一款基于Go语言开发的跨平台代理工具，支持Shadowsocks、VMess、Trojan等多种代理协议。它的核心优势在于强大的规则分流功能，可以实现国内直连、国外代理的智能切换，大幅提升网络访问效率。</p>
+
+      <h3>Clash的主要特点</h3>
+      <ul>
+        <li><strong>规则分流</strong>：根据域名、IP自动选择直连或代理</li>
+        <li><strong>多协议支持</strong>：兼容SS、SSR、VMess、Trojan、VLESS等</li>
+        <li><strong>图形界面</strong>：提供友好的GUI，配置简单直观</li>
+        <li><strong>节点测速</strong>：一键测试所有节点延迟和速度</li>
+        <li><strong>订阅管理</strong>：支持机场订阅链接，自动更新节点</li>
+      </ul>
+
+      <h2>二、Clash客户端下载与安装</h2>
+
+      <h3>Windows系统：Clash for Windows</h3>
+      <p>Clash for Windows（简称CFW）是Windows平台最流行的Clash客户端。</p>
+      <ol>
+        <li><strong>下载客户端</strong>：访问GitHub项目页面（Fndroid/clash_for_windows_pkg）下载最新版本</li>
+        <li><strong>解压运行</strong>：下载后解压到任意文件夹，双击<code>Clash for Windows.exe</code>启动</li>
+        <li><strong>首次启动</strong>：会自动创建配置文件夹，位于<code>用户目录\.config\clash</code></li>
+      </ol>
+
+      <div class="tip-box">
+        <strong>💡 提示：</strong>
+        <p>部分杀毒软件可能误报，需要添加信任。GitHub下载速度慢可以使用镜像站或从机场官网下载。</p>
+      </div>
+
+      <h3>macOS系统：ClashX Pro</h3>
+      <p>Mac用户推荐使用ClashX Pro，它是Clash的原生macOS客户端。</p>
+      <ol>
+        <li>从GitHub下载ClashX Pro（yichengchen/clashX）</li>
+        <li>拖入Applications文件夹安装</li>
+        <li>首次打开需要在"系统偏好设置→安全性"中允许运行</li>
+        <li>授予网络权限，允许拦截网络流量</li>
+      </ol>
+
+      <h3>Android系统：Clash for Android</h3>
+      <p>Android用户使用Clash for Android（Kr328/ClashForAndroid）。</p>
+      <ol>
+        <li>从GitHub或Google Play下载APK安装</li>
+        <li>安装后授予VPN权限</li>
+        <li>部分国产ROM可能需要关闭省电模式，避免后台被杀</li>
+      </ol>
+
+      <h3>iOS系统：Shadowrocket/Stash</h3>
+      <p>iOS由于系统限制，没有官方Clash客户端，推荐使用Shadowrocket（$2.99）或Stash（$3.99），都支持Clash配置文件。</p>
+
+      <h2>三、导入机场订阅</h2>
+      <p>订阅链接是机场提供的节点配置URL，通过订阅可以一键导入所有节点，并自动更新。</p>
+
+      <h3>获取订阅链接</h3>
+      <ol>
+        <li>登录机场官网，进入"我的订阅"或"仪表盘"页面</li>
+        <li>找到"Clash订阅"或"通用订阅"，复制链接</li>
+        <li>部分机场区分"Clash"和"Clash Premium"订阅，选择对应版本</li>
+      </ol>
+
+      <h3>Clash for Windows导入订阅</h3>
+      <ol>
+        <li>打开Clash for Windows，点击左侧<strong>Profiles（配置）</strong></li>
+        <li>在顶部输入框粘贴订阅链接</li>
+        <li>点击<strong>Download（下载）</strong>，等待配置文件下载完成</li>
+        <li>下载成功后，配置文件会出现在列表中，点击配置文件名称激活</li>
+        <li>返回<strong>General（常规）</strong>页面，打开<strong>System Proxy（系统代理）</strong>开关</li>
+      </ol>
+
+      <div class="tip-box">
+        <strong>⚠️ 注意：</strong>
+        <p>订阅链接类似密码，不要泄露给他人。如果订阅链接失效，可以在机场官网重置。</p>
+      </div>
+
+      <h3>订阅更新</h3>
+      <p>机场会定期添加或删除节点，建议每周更新一次订阅：</p>
+      <ul>
+        <li>在Profiles页面，点击配置文件右侧的<strong>刷新图标</strong></li>
+        <li>或者设置自动更新：右键配置文件→Update Interval（更新间隔）→选择24小时</li>
+      </ul>
+
+      <h2>四、节点选择与测速</h2>
+
+      <h3>手动选择节点</h3>
+      <ol>
+        <li>点击<strong>Proxies（代理）</strong>页面</li>
+        <li>在<strong>GLOBAL（全局）</strong>或<strong>Proxy（代理）</strong>分组中选择节点</li>
+        <li>点击节点名称即可切换</li>
+      </ol>
+
+      <h3>节点测速</h3>
+      <p>Clash支持一键测试所有节点的延迟：</p>
+      <ol>
+        <li>在Proxies页面，点击<strong>速度测试图标</strong>（闪电图标）</li>
+        <li>Clash会依次测试所有节点到目标服务器的延迟</li>
+        <li>测速结果显示在节点名称后方（单位：毫秒）</li>
+        <li>延迟越低速度越快，一般<strong>&lt;100ms为优秀</strong>，100-300ms为良好</li>
+      </ol>
+
+      <div class="tip-box">
+        <strong>💡 测速技巧：</strong>
+        <p>Clash默认测速目标是<code>http://www.gstatic.com/generate_204</code>，测的是延迟而非带宽。真实速度还需考虑带宽、丢包率等因素。</p>
+      </div>
+
+      <h3>自动选择最快节点</h3>
+      <p>部分机场订阅包含<strong>Auto（自动选择）</strong>节点组，Clash会根据测速结果自动选择延迟最低的节点。使用方法：</p>
+      <ol>
+        <li>先执行一次测速</li>
+        <li>在代理分组中选择<strong>Auto</strong>或<strong>♻️ 自动选择</strong></li>
+        <li>Clash会自动切换到延迟最低的可用节点</li>
+      </ol>
+
+      <h2>五、代理模式详解</h2>
+      <p>Clash提供三种代理模式，在General页面切换：</p>
+
+      <h3>1. Rule（规则模式）⭐ 推荐</h3>
+      <ul>
+        <li><strong>工作原理</strong>：根据配置文件中的规则，自动判断流量是直连还是代理</li>
+        <li><strong>适用场景</strong>：日常使用，国内网站直连，国外网站代理</li>
+        <li><strong>优势</strong>：智能分流，节省流量，速度快</li>
+      </ul>
+
+      <h3>2. Global（全局模式）</h3>
+      <ul>
+        <li><strong>工作原理</strong>：所有流量都走代理</li>
+        <li><strong>适用场景</strong>：需要全局代理的特殊情况（如游戏加速）</li>
+        <li><strong>劣势</strong>：国内网站也走代理，速度慢且浪费流量</li>
+      </ul>
+
+      <h3>3. Direct（直连模式）</h3>
+      <ul>
+        <li><strong>工作原理</strong>：所有流量都不经过代理</li>
+        <li><strong>适用场景</strong>：暂时不需要代理时关闭</li>
+      </ul>
+
+      <h2>六、规则分流详解</h2>
+      <p>规则分流是Clash的核心功能，通过规则自动识别流量并选择路由。</p>
+
+      <h3>常见规则类型</h3>
+      <ul>
+        <li><strong>DOMAIN</strong>：精确匹配域名（如<code>google.com</code>）</li>
+        <li><strong>DOMAIN-SUFFIX</strong>：匹配域名后缀（如<code>google.com</code>匹配<code>www.google.com</code>、<code>mail.google.com</code>）</li>
+        <li><strong>DOMAIN-KEYWORD</strong>：匹配域名关键词（如<code>google</code>匹配所有包含google的域名）</li>
+        <li><strong>IP-CIDR</strong>：匹配IP段（如<code>1.1.1.1/32</code>）</li>
+        <li><strong>GEOIP</strong>：根据IP地理位置匹配（如<code>GEOIP,CN,DIRECT</code>表示中国IP直连）</li>
+      </ul>
+
+      <h3>规则示例</h3>
+      <pre><code># 谷歌服务走代理
+DOMAIN-SUFFIX,google.com,Proxy
+DOMAIN-SUFFIX,googleapis.com,Proxy
+
+# 国内网站直连
+DOMAIN-SUFFIX,baidu.com,DIRECT
+DOMAIN-SUFFIX,qq.com,DIRECT
+
+# 中国IP直连
+GEOIP,CN,DIRECT
+
+# 其他流量走代理
+MATCH,Proxy</code></pre>
+
+      <h3>使用规则集</h3>
+      <p>手动编写规则太繁琐，推荐使用社区维护的规则集：</p>
+      <ul>
+        <li><strong>ACL4SSR</strong>：最流行的规则集，分类详细</li>
+        <li><strong>Loyalsoldier</strong>：简洁高效的规则集</li>
+        <li><strong>DivineEngine</strong>：针对流媒体优化的规则集</li>
+      </ul>
+
+      <p>在机场订阅时，大部分已内置规则集，无需手动配置。</p>
+
+      <h2>七、进阶功能</h2>
+
+      <h3>TUN模式（Clash Premium）</h3>
+      <p>TUN模式可以代理所有流量，包括不支持系统代理的应用（如游戏、终端命令）。</p>
+      <ol>
+        <li>确保使用Clash Premium版本</li>
+        <li>在General页面打开<strong>TUN Mode</strong></li>
+        <li>首次启动需要管理员权限安装虚拟网卡</li>
+      </ol>
+
+      <div class="tip-box">
+        <strong>⚠️ 注意：</strong>
+        <p>TUN模式下所有流量都会经过Clash，可能与某些安全软件冲突。不使用时建议关闭。</p>
+      </div>
+
+      <h3>脚本功能（Script）</h3>
+      <p>Clash支持JavaScript脚本，可以实现更复杂的逻辑判断，如：</p>
+      <ul>
+        <li>根据时间段切换节点</li>
+        <li>根据网速动态切换线路</li>
+        <li>自定义负载均衡策略</li>
+      </ul>
+
+      <h3>日志查看</h3>
+      <p>遇到问题时，可以查看日志排查：</p>
+      <ol>
+        <li>点击<strong>Logs（日志）</strong>页面</li>
+        <li>日志会实时显示连接信息、规则匹配情况</li>
+        <li>通过日志可以判断某个域名走了直连还是代理</li>
+      </ol>
+
+      <h2>八、常见问题解决</h2>
+
+      <h3>Q1: 开启代理后无法上网</h3>
+      <ul>
+        <li><strong>检查系统代理</strong>：确保System Proxy已打开</li>
+        <li><strong>检查端口占用</strong>：Clash默认端口7890，确保没有被其他程序占用</li>
+        <li><strong>切换节点</strong>：当前节点可能失效，切换到其他节点</li>
+        <li><strong>更新订阅</strong>：节点可能已过期，尝试更新订阅</li>
+      </ul>
+
+      <h3>Q2: 部分网站无法访问</h3>
+      <ul>
+        <li><strong>检查规则</strong>：可能被规则判定为直连，在Logs查看匹配结果</li>
+        <li><strong>切换为全局模式</strong>：临时使用Global模式测试</li>
+        <li><strong>更换节点</strong>：某些节点可能被特定网站屏蔽</li>
+      </ul>
+
+      <h3>Q3: 速度很慢</h3>
+      <ul>
+        <li><strong>执行测速</strong>：选择延迟最低的节点</li>
+        <li><strong>检查本地网络</strong>：确保本地网络正常</li>
+        <li><strong>避开高峰期</strong>：晚上8-11点是使用高峰，速度会下降</li>
+        <li><strong>更换机场</strong>：可能是机场超售，考虑更换更稳定的机场</li>
+      </ul>
+
+      <h3>Q4: 规则不生效</h3>
+      <ul>
+        <li><strong>确认规则模式</strong>：必须在Rule模式下规则才会生效</li>
+        <li><strong>检查规则顺序</strong>：规则从上到下匹配，优先匹配的规则会被执行</li>
+        <li><strong>清除DNS缓存</strong>：<code>ipconfig /flushdns</code>（Windows）或重启Clash</li>
+      </ul>
+
+      <h2>九、总结</h2>
+      <p>Clash作为目前最强大的代理工具，功能丰富但配置灵活。对于新手，建议：</p>
+      <ul>
+        <li>使用机场提供的托管配置，开箱即用</li>
+        <li>选择Rule（规则）模式，日常使用最便捷</li>
+        <li>定期测速，选择延迟低的节点</li>
+        <li>定期更新订阅，保持节点最新</li>
+      </ul>
+
+      <p>对于进阶用户，可以：</p>
+      <ul>
+        <li>自定义规则，精准控制分流逻辑</li>
+        <li>使用TUN模式，代理全部流量</li>
+        <li>通过Script实现自动化策略</li>
+        <li>结合多个机场订阅，实现负载均衡</li>
+      </ul>
+
+      <div class="tip-box">
+        <strong>💡 推荐机场：</strong>
+        <p>想要最佳体验，推荐选择IPLC专线机场，如云图、极连云、瞬云等，稳定性和速度都有保障。查看<a href="../rankings/index.html" style="color: var(--accent);">推荐榜单</a>了解更多。</p>
+      </div>
+
+      <p>掌握Clash的使用，能大幅提升你的网络使用效率。希望本文能帮助你从入门到精通，充分发挥Clash的强大功能！</p>
+
+      <a href="../about/index.html" class="back-link">← 返回知识库</a>
+    </div>
+  </article>
+
+  <footer>
+    <p>© 2026 机场测评知识库 | <a href="../index.html" style="color: var(--accent); text-decoration: none;">返回首页</a></p>
+  </footer>
+</body>
+</html>

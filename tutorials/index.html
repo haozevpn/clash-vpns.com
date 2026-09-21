@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新手教程：Clash/Shadowrocket使用指南 | 机场测评</title>
+  <meta name="description" content="详细的机场使用教程，包括Clash Verge、Shadowrocket、sing-box配置指南，订阅链接导入方法，节点延迟、倍率含义解析，帮助新手快速上手。">
+
+  <!-- SEO & Geo Optimization (clash-vpns.com) -->
+  <link rel="canonical" href="https://clash-vpns.com/tutorials/">
+  <link rel="alternate" hreflang="zh-CN" href="https://clash-vpns.com/tutorials/">
+  <link rel="alternate" hreflang="x-default" href="https://clash-vpns.com/tutorials/">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="geo.region" content="HK">
+  <meta name="geo.placename" content="Global / Asia Pacific">
+  <meta name="content-language" content="zh-CN">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:site_name" content="Clash-VPNs 机场测评网">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="新手教程：Clash/Shadowrocket使用指南 | 机场测评">
+  <meta property="og:description" content="详细的机场使用教程，包括Clash Verge、Shadowrocket、sing-box配置指南，订阅链接导入方法，节点延迟、倍率含义解析，帮助新手快速上手。">
+  <meta property="og:url" content="https://clash-vpns.com/tutorials/">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:image" content="https://clash-vpns.com/og-image.png">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="新手教程：Clash/Shadowrocket使用指南 | 机场测评">
+  <meta name="twitter:description" content="详细的机场使用教程，包括Clash Verge、Shadowrocket、sing-box配置指南，订阅链接导入方法，节点延迟、倍率含义解析，帮助新手快速上手。">
+  <meta name="twitter:image" content="https://clash-vpns.com/og-image.png">
+
+  <!-- GEO & Generative AI Search JSON-LD Schema -->
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://clash-vpns.com/tutorials/#webpage",
+    "url": "https://clash-vpns.com/tutorials/",
+    "name": "新手教程：Clash/Shadowrocket使用指南 | 机场测评",
+    "description": "详细的机场使用教程，包括Clash Verge、Shadowrocket、sing-box配置指南，订阅链接导入方法，节点延迟、倍率含义解析，帮助新手快速上手。",
+    "inLanguage": "zh-CN",
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://clash-vpns.com/#website"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "首页",
+        "item": "https://clash-vpns.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "新手教程：Clash/Shadowrocket使用指南",
+        "item": "https://clash-vpns.com/tutorials/"
+      }
+    ]
+  }
+]
+  </script>
+
+  <meta name="keywords" content="Clash教程,Shadowrocket教程,机场订阅怎么用,sing-box使用教程,机场是什么意思,节点延迟,流量倍率,订阅链接">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-primary: #FAFBFC;
+      --bg-secondary: #FFFFFF;
+      --border: #E5E7EB;
+      --text-primary: #0F172A;
+      --text-secondary: #64748B;
+      --accent: #10B981;
+      --accent-hover: #059669;
+      --accent-light: #D1FAE5;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+      font-weight: 400;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .page-header {
+      text-align: center;
+      padding: 4rem 1.5rem 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .page-header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .highlight {
+      color: var(--accent);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 5rem;
+    }
+
+    .tutorial-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      transition: all 0.2s;
+    }
+
+    .tutorial-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    }
+
+    .tutorial-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .tutorial-card h3 {
+      font-size: 1.2rem;
+      margin: 1.5rem 0 0.75rem;
+      color: var(--text-primary);
+    }
+
+    .tutorial-card p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    .tutorial-card ol, .tutorial-card ul {
+      margin: 1rem 0 1rem 2rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .tutorial-card li {
+      margin-bottom: 0.5rem;
+    }
+
+    .tip-box {
+      background: var(--accent-light);
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .tip-box strong {
+      color: var(--accent);
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s;
+      margin-top: 1rem;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    footer p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.85rem;
+      }
+
+      .page-header h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="logo">机场测评</a>
+      <ul class="nav-links">
+        <li><a href="../airport-reviews/index.html">全部测评</a></li>
+        <li><a href="../rankings/index.html">推荐榜单</a></li>
+        <li><a href="../ai-tools.html">AI工具</a></li>
+        <li><a href="../tutorials/index.html" class="active">使用教程</a></li>
+        <li><a href="../about/index.html">知识库</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1>新手<span class="highlight">使用教程</span></h1>
+    <p style="color: var(--text-secondary);">从零开始，快速掌握机场使用方法</p>
+  </div>
+
+  <div class="container">
+    <!-- 什么是机场 -->
+    <div class="tutorial-card">
+      <h2>📚 什么是机场？</h2>
+      <p>机场是提供代理节点服务的平台，通过订阅链接为用户提供多个节点。相比传统VPN，机场具有以下特点：</p>
+      <ul>
+        <li><strong>节点多样化：</strong>提供多国家/地区节点，可自由切换</li>
+        <li><strong>速度更快：</strong>采用专线、IPLC等优质线路，延迟低速度快</li>
+        <li><strong>按流量计费：</strong>灵活套餐，适合不同使用场景</li>
+        <li><strong>协议先进：</strong>支持Shadowsocks、VMess、Trojan等新协议</li>
+      </ul>
+
+      <h3>机场和VPN的区别</h3>
+      <ul>
+        <li><strong>VPN：</strong>点对点加密隧道，通常单一服务器，适合企业远程办公</li>
+        <li><strong>机场：</strong>代理节点集合，多节点可选，适合流媒体、AI工具等场景</li>
+      </ul>
+
+      <div class="tip-box">
+        <strong>💡 提示：</strong>机场使用需配合客户端软件（Clash、Shadowrocket等），通过订阅链接导入节点。
+      </div>
+    </div>
+
+    <!-- Clash教程 -->
+    <div class="tutorial-card">
+      <h2>⚡ Clash Verge 使用教程</h2>
+      <p><strong>适用平台：</strong>Windows / macOS / Linux</p>
+
+      <h3>1. 下载安装</h3>
+      <ol>
+        <li>访问 <a href="https://github.com/clash-verge-rev/clash-verge-rev/releases" target="_blank" style="color: var(--accent);">Clash Verge GitHub</a> 下载对应系统版本</li>
+        <li>Windows下载 <code>.exe</code> 安装包，macOS下载 <code>.dmg</code> 文件</li>
+        <li>安装并打开软件</li>
+      </ol>
+
+      <h3>2. 导入订阅链接</h3>
+      <ol>
+        <li>从机场网站复制订阅链接（Clash订阅）</li>
+        <li>打开Clash Verge，点击左侧「订阅」</li>
+        <li>点击右上角「+」按钮，选择「从链接导入」</li>
+        <li>粘贴订阅链接，点击「确定」</li>
+        <li>等待节点更新完成</li>
+      </ol>
+
+      <h3>3. 选择节点并启动</h3>
+      <ol>
+        <li>点击「代理」标签页</li>
+        <li>选择「节点选择」组，点击想用的节点</li>
+        <li>回到主界面，打开「系统代理」开关</li>
+        <li>选择「规则模式」（推荐）或「全局模式」</li>
+      </ol>
+
+      <div class="tip-box">
+        <strong>💡 模式说明：</strong>
+        <ul style="margin: 0.5rem 0 0 1.5rem;">
+          <li><strong>规则模式：</strong>国内网站直连，国外网站走代理（推荐日常使用）</li>
+          <li><strong>全局模式：</strong>所有流量都走代理</li>
+          <li><strong>直连模式：</strong>不使用代理</li>
+        </ul>
+      </div>
+
+      <a href="../index.html" class="btn-primary">查看推荐机场 →</a>
+    </div>
+
+    <!-- Shadowrocket教程 -->
+    <div class="tutorial-card">
+      <h2>🚀 Shadowrocket 使用教程</h2>
+      <p><strong>适用平台：</strong>iOS (iPhone / iPad)</p>
+
+      <h3>1. 下载安装</h3>
+      <ul>
+        <li>在美区/港区App Store搜索「Shadowrocket」购买下载（$2.99）</li>
+        <li>或使用共享美区账号下载（已购买版）</li>
+      </ul>
+
+      <h3>2. 导入订阅</h3>
+      <ol>
+        <li>从机场网站复制订阅链接（通用订阅或Shadowrocket订阅）</li>
+        <li>打开Shadowrocket，点击右上角「+」</li>
+        <li>选择「类型」→「Subscribe」</li>
+        <li>在「URL」栏粘贴订阅链接</li>
+        <li>点击右上角「完成」</li>
+        <li>点击订阅右侧箭头进入，刷新获取节点</li>
+      </ol>
+
+      <h3>3. 连接节点</h3>
+      <ol>
+        <li>回到首页，选择一个延迟低的节点</li>
+        <li>点击顶部开关启动连接</li>
+        <li>首次使用需在系统弹窗中点击「允许」</li>
+        <li>状态栏出现VPN图标即为连接成功</li>
+      </ol>
+
+      <div class="tip-box">
+        <strong>⚠️ 注意：</strong>订阅链接不要分享给他人，避免流量被盗用。定期更新订阅以获取最新节点。
+      </div>
+    </div>
+
+    <!-- sing-box教程 -->
+    <div class="tutorial-card">
+      <h2>📦 sing-box 使用教程</h2>
+      <p><strong>适用平台：</strong>Android / iOS / Windows / macOS / Linux</p>
+
+      <h3>1. 下载客户端</h3>
+      <ul>
+        <li><strong>Android：</strong>下载 SFA (Sing-Box for Android)</li>
+        <li><strong>iOS：</strong>App Store搜索「sing-box」</li>
+        <li><strong>桌面端：</strong>访问 <a href="https://github.com/SagerNet/sing-box" target="_blank" style="color: var(--accent);">GitHub</a> 下载对应版本</li>
+      </ul>
+
+      <h3>2. 导入配置</h3>
+      <ol>
+        <li>从机场获取sing-box订阅链接</li>
+        <li>打开客户端，点击「+」或「添加配置」</li>
+        <li>选择「从URL导入」</li>
+        <li>粘贴订阅链接，点击「导入」</li>
+      </ol>
+
+      <h3>3. 启动连接</h3>
+      <ol>
+        <li>选择一个配置文件</li>
+        <li>点击连接按钮</li>
+        <li>允许VPN权限</li>
+      </ol>
+
+      <p><strong>优势：</strong>sing-box是新一代代理工具，性能优秀，支持多种协议，配置灵活。</p>
+    </div>
+
+    <!-- 订阅链接使用 -->
+    <div class="tutorial-card">
+      <h2>🔗 订阅链接怎么用？</h2>
+
+      <h3>获取订阅链接</h3>
+      <ol>
+        <li>登录机场网站</li>
+        <li>进入「用户中心」或「我的订阅」</li>
+        <li>找到「订阅链接」区域</li>
+        <li>根据客户端类型选择对应链接：
+          <ul>
+            <li>Clash 订阅</li>
+            <li>通用订阅（Shadowrocket、V2rayN等）</li>
+            <li>sing-box 订阅</li>
+          </ul>
+        </li>
+        <li>点击「复制」按钮</li>
+      </ol>
+
+      <h3>导入到客户端</h3>
+      <p>各客户端导入方法见上方对应教程。通常步骤为：</p>
+      <ol>
+        <li>打开客户端</li>
+        <li>找到「订阅」或「配置」功能</li>
+        <li>选择「从URL导入」</li>
+        <li>粘贴订阅链接</li>
+        <li>更新/下载节点</li>
+      </ol>
+
+      <div class="tip-box">
+        <strong>⚠️ 安全提示：</strong>
+        <ul style="margin: 0.5rem 0 0 1.5rem;">
+          <li>订阅链接等同于账号密码，不要泄露给他人</li>
+          <li>不要在不可信的第三方网站使用订阅链接</li>
+          <li>如订阅链接泄露，立即在机场后台重置</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 专业术语解释 -->
+    <div class="tutorial-card">
+      <h2>📖 专业术语解释</h2>
+
+      <h3>节点延迟是什么意思？</h3>
+      <p>延迟（Ping）是指数据从你的设备到代理节点服务器的往返时间，单位为毫秒(ms)。</p>
+      <ul>
+        <li><strong>&lt;50ms：</strong>优秀，几乎无感知延迟</li>
+        <li><strong>50-150ms：</strong>良好，日常使用流畅</li>
+        <li><strong>150-300ms：</strong>一般，网页浏览可接受</li>
+        <li><strong>&gt;300ms：</strong>较差，可能出现卡顿</li>
+      </ul>
+      <p><strong>影响因素：</strong>物理距离、线路质量、网络拥堵程度。</p>
+
+      <h3>流量倍率是什么？</h3>
+      <p>倍率是指使用节点时的流量扣费系数：</p>
+      <ul>
+        <li><strong>1倍：</strong>使用1GB流量，扣除1GB（普通节点）</li>
+        <li><strong>0.5倍：</strong>使用1GB流量，仅扣0.5GB（低倍率优惠节点）</li>
+        <li><strong>2倍：</strong>使用1GB流量，扣除2GB（高速专线节点）</li>
+      </ul>
+      <p><strong>建议：</strong>日常浏览用低倍率节点省流量，下载/流媒体用高倍率专线节点保速度。</p>
+
+      <h3>IPLC / IEPL 是什么？</h3>
+      <ul>
+        <li><strong>IPLC：</strong>国际专线，点对点物理连接，不过墙不受干扰，高峰期稳定</li>
+        <li><strong>IEPL：</strong>国际以太网专线，类似IPLC，更灵活</li>
+        <li><strong>优势：</strong>延迟低、速度快、稳定性高，适合对网络质量要求高的用户</li>
+      </ul>
+
+      <h3>流媒体解锁是什么？</h3>
+      <p>部分节点使用原生IP（当地运营商IP），可以访问该地区的流媒体服务：</p>
+      <ul>
+        <li><strong>Netflix：</strong>美区、日区、新加坡等地区内容库</li>
+        <li><strong>Disney+：</strong>迪士尼流媒体服务</li>
+        <li><strong>YouTube Premium：</strong>部分地区会员功能</li>
+        <li><strong>TikTok：</strong>国际版抖音访问</li>
+      </ul>
+    </div>
+
+    <!-- 常见问题 -->
+    <div class="tutorial-card">
+      <h2>❓ 常见问题解决</h2>
+
+      <h3>1. 节点连不上 / 延迟超时</h3>
+      <ul>
+        <li>检查本地网络是否正常</li>
+        <li>更新订阅获取最新节点</li>
+        <li>切换其他节点尝试</li>
+        <li>检查客户端是否是最新版本</li>
+      </ul>
+
+      <h3>2. 流量用完怎么办？</h3>
+      <ul>
+        <li>在机场网站购买流量包</li>
+        <li>升级到更大流量套餐</li>
+        <li>续费下个月套餐（月付用户）</li>
+      </ul>
+
+      <h3>3. 速度很慢怎么办？</h3>
+      <ul>
+        <li>选择延迟更低的节点</li>
+        <li>避开高峰期（晚上8-11点）</li>
+        <li>使用专线节点（IPLC/IEPL）</li>
+        <li>联系机场客服反馈节点问题</li>
+      </ul>
+
+      <h3>4. 订阅更新失败</h3>
+      <ul>
+        <li>检查订阅链接是否正确</li>
+        <li>尝试手动删除旧订阅重新添加</li>
+        <li>检查机场网站是否可以正常访问</li>
+        <li>确认套餐是否已过期</li>
+      </ul>
+
+      <a href="../rankings/index.html" class="btn-primary">查看推荐机场榜单 →</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 机场测评 | 客观、真实、可信的代理服务评测平台</p>
+    <p style="margin-top: 0.5rem;"><a href="../index.html" style="color: var(--accent);">返回首页</a></p>
+  </footer>
+
+</body>
+</html>
