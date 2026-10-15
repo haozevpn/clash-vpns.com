@@ -234,6 +234,204 @@ footer {
   border-top: 1px solid var(--theme-border) !important;
 }
 
+/* Homepage: compact editorial layout */
+body:has(.hero) .hero {
+  max-width: 1160px !important;
+  margin: 2.5rem auto 1rem !important;
+  padding: 2rem 1.5rem !important;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+  gap: 3rem;
+  align-items: center;
+  text-align: left !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f1fbf7 100%);
+  border: 1px solid var(--theme-border);
+  border-radius: 22px;
+  box-shadow: var(--theme-shadow);
+}
+
+body:has(.hero) .hero .eyebrow,
+body:has(.hero) .hero h1,
+body:has(.hero) .hero .lead,
+body:has(.hero) .hero .cta-group {
+  grid-column: 1;
+}
+
+body:has(.hero) .hero .eyebrow {
+  justify-self: start;
+  margin: 0 0 1rem !important;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.75rem;
+  animation: none;
+}
+
+body:has(.hero) .hero h1 {
+  margin-bottom: 1rem !important;
+  font-size: clamp(2.4rem, 4vw, 4rem) !important;
+  line-height: 1.08;
+}
+
+body:has(.hero) .hero .lead {
+  max-width: 680px;
+  margin: 0 0 1.5rem !important;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+body:has(.hero) .hero .cta-group {
+  justify-content: flex-start;
+}
+
+body:has(.hero) .hero .btn {
+  padding: 0.8rem 1.25rem;
+  font-size: 0.9rem;
+}
+
+.hero-panel {
+  grid-column: 2;
+  grid-row: 1 / span 4;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 250px;
+  padding: 1.35rem;
+  border: 1px solid #ccefe0;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.hero-panel-head,
+.hero-stats,
+.hero-panel-link {
+  display: flex;
+  align-items: center;
+}
+
+.hero-panel-head {
+  justify-content: space-between;
+  color: var(--theme-text);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.hero-panel-head strong {
+  color: var(--theme-accent-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.hero-stats {
+  gap: 0.65rem;
+  margin: 1.5rem 0;
+}
+
+.hero-stats div {
+  flex: 1;
+  padding: 0.8rem 0.65rem;
+  border-radius: 12px;
+  background: #f5fbf8;
+  text-align: center;
+}
+
+.hero-stats b,
+.hero-stats span {
+  display: block;
+}
+
+.hero-stats b {
+  color: var(--theme-text);
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.hero-stats span {
+  margin-top: 0.25rem;
+  color: var(--theme-muted);
+  font-size: 0.7rem;
+}
+
+.hero-panel-link {
+  justify-content: space-between;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--theme-border);
+  color: var(--theme-accent-dark);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.hero-panel-link span {
+  font-size: 1.1rem;
+}
+
+body:has(.hero) .container > .section:first-child {
+  padding-top: 1.25rem;
+}
+
+body:has(.hero) .section {
+  padding: 2.5rem 0;
+}
+
+body:has(.hero) .section-header {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+body:has(.hero) .section-header h2 {
+  margin-bottom: 0.35rem;
+  font-size: 2rem;
+}
+
+body:has(.hero) .section-desc {
+  margin: 0;
+  max-width: 720px;
+  font-size: 0.9rem;
+}
+
+.quick-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.quick-links a {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 0.7rem;
+  align-items: center;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--theme-border);
+  border-radius: 12px;
+  background: var(--theme-surface);
+  color: var(--theme-text);
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.quick-links a:hover {
+  border-color: #b7e8d4;
+  box-shadow: var(--theme-shadow-hover);
+  transform: translateY(-2px);
+}
+
+.quick-links span {
+  grid-row: span 2;
+  color: var(--theme-accent-dark);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.quick-links strong {
+  font-size: 0.9rem;
+}
+
+.quick-links small {
+  color: var(--theme-muted);
+  font-size: 0.72rem;
+}
+
 @media (max-width: 1060px) {
   .nav-inner {
     align-items: flex-start;
@@ -283,5 +481,37 @@ footer {
 
   .ranking-price {
     margin-left: 76px;
+  }
+
+  body:has(.hero) .hero {
+    display: block;
+    margin: 1rem auto 0 !important;
+    padding: 1.5rem 1rem !important;
+    border-radius: 16px;
+  }
+
+  body:has(.hero) .hero h1 {
+    font-size: 2.25rem !important;
+  }
+
+  body:has(.hero) .hero .lead {
+    font-size: 0.92rem;
+  }
+
+  body:has(.hero) .hero .cta-group {
+    justify-content: flex-start;
+  }
+
+  .hero-panel {
+    min-height: 0;
+    margin-top: 1.25rem;
+  }
+
+  body:has(.hero) .section-header {
+    text-align: left;
+  }
+
+  .quick-links {
+    grid-template-columns: 1fr;
   }
 }
