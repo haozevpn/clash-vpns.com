@@ -60,6 +60,8 @@ body::after {
 }
 
 .nav {
+  height: 72px !important;
+  min-height: 72px !important;
   background: rgba(247, 240, 228, 0.94) !important;
   border-bottom: 3px double var(--theme-border) !important;
   box-shadow: none !important;
@@ -68,11 +70,12 @@ body::after {
 
 .nav-inner {
   max-width: 1160px !important;
-  width: calc(100% - 2rem) !important;
+  width: 100% !important;
+  height: 72px !important;
   margin: 0 auto !important;
-  min-height: 72px;
-  padding: 0.85rem 1.25rem !important;
-  gap: 1.25rem;
+  min-height: 72px !important;
+  padding: 0 1.25rem !important;
+  gap: 0 !important;
   justify-content: flex-start !important;
 }
 
@@ -95,8 +98,8 @@ body::after {
   justify-content: flex-start;
   flex-wrap: nowrap;
   gap: 1.35rem !important;
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0 !important;
   list-style: none;
 }
 
@@ -651,10 +654,17 @@ body:has(.hero) .section-desc {
 }
 
 @media (max-width: 760px) {
+  .nav {
+    height: auto !important;
+    min-height: 72px !important;
+  }
+
   .nav-inner {
     flex-direction: column;
+    height: auto !important;
     gap: 0.4rem;
-    width: calc(100% - 1rem) !important;
+    min-height: 72px !important;
+    padding: 0.75rem 1rem !important;
   }
 
   .nav-links,
