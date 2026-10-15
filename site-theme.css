@@ -383,11 +383,11 @@ body:has(.hero) .hero .btn {
 .hero-panel {
   grid-column: 2;
   grid-row: 1 / span 4;
-  align-self: stretch;
+  align-self: start;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  min-height: 250px;
+  justify-content: flex-start;
+  min-height: 0;
   padding: 1.35rem;
   border: 1px solid #ccefe0;
   border-radius: 16px;
