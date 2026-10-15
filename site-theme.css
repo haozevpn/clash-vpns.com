@@ -85,6 +85,8 @@ body::after {
 }
 
 .nav-inner {
+  display: flex !important;
+  align-items: center !important;
   max-width: 1160px !important;
   width: 100% !important;
   height: 72px !important;
@@ -93,6 +95,12 @@ body::after {
   padding: 0 1.25rem !important;
   gap: 0 !important;
   justify-content: flex-start !important;
+}
+
+.content-wrapper,
+.animated-bg {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .logo {
@@ -657,7 +665,7 @@ body:has(.hero) .section-desc {
 
 @media (max-width: 1060px) {
   .nav-inner {
-    align-items: flex-start;
+    align-items: center !important;
   }
 
   .nav-links,
@@ -665,22 +673,28 @@ body:has(.hero) .section-desc {
     overflow-x: auto;
     justify-content: flex-start;
     max-width: 100%;
-    padding-bottom: 0.15rem;
+    padding-bottom: 0 !important;
+    scrollbar-width: none;
+  }
+
+  .nav-links::-webkit-scrollbar,
+  .nav ul::-webkit-scrollbar {
+    display: none;
   }
 }
 
 @media (max-width: 760px) {
   .nav {
-    height: auto !important;
+    height: 72px !important;
     min-height: 72px !important;
   }
 
   .nav-inner {
-    flex-direction: column;
-    height: auto !important;
-    gap: 0.4rem;
+    flex-direction: row !important;
+    align-items: center !important;
+    height: 72px !important;
     min-height: 72px !important;
-    padding: 0.75rem 1rem !important;
+    padding: 0 1rem !important;
   }
 
   .nav-links,
