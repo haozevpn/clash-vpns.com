@@ -2,11 +2,11 @@
 
 User-agent: *
 Allow: /
-Disallow: /*-template.html
+Disallow: /*-template.html$
 Disallow: /*.md$
 Disallow: /scratch/
+Disallow: /.git/
 
-# Allow major AI search bots to crawl and cite content (Generative Engine Optimization - GEO)
 User-agent: GPTBot
 Allow: /
 
@@ -28,5 +28,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-# Sitemap Location
 Sitemap: https://clash-vpns.com/sitemap.xml
