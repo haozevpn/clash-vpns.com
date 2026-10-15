@@ -20,11 +20,14 @@
 
 html {
   scroll-behavior: smooth;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 body {
   position: relative;
-  margin: 0;
+  margin: 0 !important;
+  padding: 0 !important;
   background-color: var(--theme-bg) !important;
   background-image: linear-gradient(120deg, rgba(255, 255, 255, 0.25), transparent 35%, rgba(109, 83, 52, 0.06));
   color: var(--theme-text) !important;
@@ -62,6 +65,8 @@ body::after {
 .nav {
   height: 72px !important;
   min-height: 72px !important;
+  margin: 0 !important;
+  padding: 0 !important;
   background: rgba(247, 240, 228, 0.94) !important;
   border-bottom: 3px double var(--theme-border) !important;
   box-shadow: none !important;
