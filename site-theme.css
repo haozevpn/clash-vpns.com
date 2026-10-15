@@ -108,7 +108,7 @@ body::after {
   color: var(--theme-terracotta) !important;
 }
 
-.nav-links li:first-child a {
+.nav-links li:nth-child(2) a {
   color: var(--theme-accent-dark) !important;
   font-weight: 700 !important;
 }
