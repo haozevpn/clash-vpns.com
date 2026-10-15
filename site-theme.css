@@ -61,6 +61,8 @@ body::after {
 
 .nav-inner {
   max-width: 1240px !important;
+  width: calc(100% - 2rem) !important;
+  margin: 0 auto !important;
   min-height: 72px;
   padding: 0.85rem 1.25rem !important;
   gap: 1.25rem;
@@ -340,12 +342,12 @@ body:has(.hero) .section-header h2 {
 /* Homepage: compact editorial layout */
 body:has(.hero) .hero {
   max-width: 1160px !important;
-  margin: 2.5rem auto 1rem !important;
-  padding: 2rem 1.5rem !important;
+  margin: 1.5rem auto 0.75rem !important;
+  padding: 1.5rem !important;
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
-  gap: 3rem;
-  align-items: center;
+  grid-template-columns: minmax(0, 1.12fr) minmax(330px, 0.88fr);
+  gap: 2rem;
+  align-items: stretch;
   text-align: left !important;
   background: linear-gradient(135deg, #ffffff 0%, #f1fbf7 100%);
   border: 1px solid var(--theme-border);
@@ -353,14 +355,11 @@ body:has(.hero) .hero {
   box-shadow: var(--theme-shadow);
 }
 
-body:has(.hero) .hero .eyebrow,
-body:has(.hero) .hero h1,
-body:has(.hero) .hero .lead,
-body:has(.hero) .hero .cta-group {
+body:has(.hero) .hero-copy {
   grid-column: 1;
 }
 
-body:has(.hero) .hero .eyebrow {
+body:has(.hero) .hero-copy .eyebrow {
   justify-self: start;
   margin: 0 0 1rem !important;
   padding: 0.4rem 0.8rem;
@@ -368,20 +367,21 @@ body:has(.hero) .hero .eyebrow {
   animation: none;
 }
 
-body:has(.hero) .hero h1 {
+body:has(.hero) .hero-copy h1 {
   margin-bottom: 1rem !important;
-  font-size: clamp(2.4rem, 4vw, 4rem) !important;
+  max-width: 700px;
+  font-size: clamp(2.25rem, 3.25vw, 3.6rem) !important;
   line-height: 1.08;
 }
 
-body:has(.hero) .hero .lead {
+body:has(.hero) .hero-copy .lead {
   max-width: 680px;
   margin: 0 0 1.5rem !important;
   font-size: 1rem;
   line-height: 1.75;
 }
 
-body:has(.hero) .hero .cta-group {
+body:has(.hero) .hero-copy .cta-group {
   justify-content: flex-start;
 }
 
@@ -392,12 +392,13 @@ body:has(.hero) .hero .btn {
 
 .hero-panel {
   grid-column: 2;
-  grid-row: 1 / span 4;
-  align-self: start;
+  grid-row: 1 / -1;
+  align-self: stretch;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   min-height: 0;
+  height: 100%;
   padding: 1.35rem;
   border: 1px solid #ccefe0;
   border-radius: 16px;
@@ -466,6 +467,15 @@ body:has(.hero) .hero .btn {
 
 .hero-panel-link span {
   font-size: 1.1rem;
+}
+
+.hero-panel-note {
+  margin: auto 0 0;
+  padding-top: 0.8rem;
+  color: var(--theme-muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-align: center;
 }
 
 /* Category hub */
@@ -635,6 +645,7 @@ body:has(.hero) .section-desc {
   .nav-inner {
     flex-direction: column;
     gap: 0.4rem;
+    width: calc(100% - 1rem) !important;
   }
 
   .nav-links,
@@ -688,7 +699,7 @@ body:has(.hero) .section-desc {
   }
 
   .hero-panel {
-    min-height: 0;
+    height: auto;
     margin-top: 1.25rem;
   }
 
