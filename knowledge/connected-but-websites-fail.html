@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>机场显示已连接但网页打不开：系统代理、DNS与规则排查 | 机场测评知识库</title>
+  <meta name="description" content="按客户端代理模式、DNS、分流规则和单个应用逐层排查“已连接但网页打不开”，避免反复重装或泄露配置。">
+  <meta name="keywords" content="机场连上了但打不开网页,机场连接成功无法上网,DNS排查,系统代理">
+  <link rel="canonical" href="https://clash-vpns.com/knowledge/connected-but-websites-fail.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://clash-vpns.com/knowledge/connected-but-websites-fail.html">
+  <link rel="alternate" hreflang="x-default" href="https://clash-vpns.com/knowledge/connected-but-websites-fail.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="geo.region" content="HK">
+  <meta name="geo.placename" content="Global / Asia Pacific">
+  <meta name="content-language" content="zh-CN">
+  <meta property="og:site_name" content="Clash-VPNs 机场测评网">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="机场显示已连接但网页打不开：系统代理、DNS与规则排查">
+  <meta property="og:description" content="按客户端代理模式、DNS、分流规则和单个应用逐层排查“已连接但网页打不开”，避免反复重装或泄露配置。">
+  <meta property="og:url" content="https://clash-vpns.com/knowledge/connected-but-websites-fail.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:image" content="https://clash-vpns.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="机场显示已连接但网页打不开：系统代理、DNS与规则排查">
+  <meta name="twitter:description" content="按客户端代理模式、DNS、分流规则和单个应用逐层排查“已连接但网页打不开”，避免反复重装或泄露配置。">
+  <meta name="twitter:image" content="https://clash-vpns.com/og-image.png">
+  <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://clash-vpns.com/knowledge/connected-but-websites-fail.html"},"headline":"机场显示已连接但网页打不开：系统代理、DNS与规则排查","description":"按客户端代理模式、DNS、分流规则和单个应用逐层排查“已连接但网页打不开”，避免反复重装或泄露配置。","keywords":"机场连上了但打不开网页,机场连接成功无法上网,DNS排查,系统代理","articleSection":"故障排查","inLanguage":"zh-CN","author":{"@type":"Organization","name":"Clash-VPNs 测评组"},"publisher":{"@type":"Organization","name":"Clash-VPNs 机场测评网","url":"https://clash-vpns.com"},"datePublished":"2026-10-31T08:00:00+08:00","dateModified":"2026-10-31T08:00:00+08:00"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://clash-vpns.com/"},{"@type":"ListItem","position":2,"name":"科普知识","item":"https://clash-vpns.com/about/"},{"@type":"ListItem","position":3,"name":"故障排查","item":"https://clash-vpns.com/knowledge/categories/troubleshooting.html"},{"@type":"ListItem","position":4,"name":"机场显示已连接但网页打不开：系统代理、DNS与规则排查","item":"https://clash-vpns.com/knowledge/connected-but-websites-fail.html"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"客户端显示已连接就说明机场节点正常吗？","acceptedAnswer":{"@type":"Answer","text":"不能只凭这一状态判断；还需确认域名解析、规则路由和目标应用的连接。"}}]}]</script>
+  <link rel="stylesheet" href="../site-theme.css">
+  <style>
+    .article-container{max-width:860px;margin:0 auto;padding:2rem 1.5rem 4rem}.article-header{margin:2rem 0;padding-bottom:1.5rem;border-bottom:1px solid var(--theme-border)}.article-meta{display:flex;gap:1rem;align-items:center;margin-bottom:1rem}.category-badge{background:var(--theme-surface-soft);color:var(--theme-accent-dark);padding:.3rem .8rem;border-radius:999px}.article-date{color:var(--theme-muted);font-size:.9rem}.article-header h1{font-size:2.2rem;line-height:1.4;margin:.5rem 0 1rem}.article-excerpt{color:var(--theme-muted);font-size:1.08rem}.article-content{font-size:1.03rem;line-height:1.9}.article-content h2,.related h2,.references h2,.article-faq h2{font-size:1.45rem;margin:2rem 0 .8rem}.article-content p,.article-faq p{margin:0 0 1rem;color:var(--theme-muted)}.article-content ul,.related ul,.references ul{padding-left:1.4rem;color:var(--theme-muted)}.article-content li,.related li,.references li{margin:.5rem 0}.related a,.references a{color:var(--theme-accent-dark)}.article-faq{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--theme-border)}.back-link{display:inline-block;margin:2rem 0;padding:.7rem 1rem;background:var(--theme-accent);color:#fff;text-decoration:none}@media(max-width:700px){.article-header h1{font-size:1.7rem}.article-container{padding-inline:1rem}}
+  </style>
+</head>
+<body>
+<nav class="nav" aria-label="主导航"><div class="nav-inner"><a href="../index.html" class="logo">机场测评</a><ul class="nav-links"><li><a href="../index.html">首页</a></li><li><a href="../airport-reviews/index.html">机场推荐</a></li><li><a href="../guide/index.html">梯子指南</a></li><li><a href="../ai-tools.html">AI工具</a></li><li><a href="../knowledge/categories/platforms.html">客户端</a></li><li><a href="../knowledge/categories/troubleshooting.html">网络问题</a></li><li><a href="../rankings/index.html">品牌库</a></li><li><a href="../contact/index.html">问题中心</a></li><li><a href="../knowledge/categories/index.html">文章分类</a></li></ul></div></nav>
+<article class="article-container">
+  <header class="article-header"><div class="article-meta"><span class="category-badge">故障排查</span><time class="article-date" datetime="2026-10-31">2026-10-31</time></div><h1>机场显示已连接但网页打不开：系统代理、DNS与规则排查</h1><p class="article-excerpt">按客户端代理模式、DNS、分流规则和单个应用逐层排查“已连接但网页打不开”，避免反复重装或泄露配置。</p></header>
+  <div class="article-content"><h2>先确认问题影响范围</h2><p>客户端显示“已连接”通常只说明配置被加载或本地隧道已启动，不一定表示所有网站都能通过节点访问。先分别打开一个常用网站、一个直连网站和一个应用，观察是全部失败、只有某个域名失败，还是只有浏览器异常。不同范围对应不同排查方向。</p><p>同时确认设备本身可以正常联网：关闭代理后测试本地网络，查看 Wi-Fi 或移动数据是否有互联网连接。若直连也打不开，先处理路由器、运营商或设备网络问题；如果直连正常而代理失败，再进入客户端和节点层面排查。</p><h2>检查代理模式与系统代理</h2><p>查看客户端当前处于规则、全局还是直连模式，并确认系统代理开关已启用。若只在浏览器里打开了代理插件，其他桌面应用可能不会经过它；反过来，系统代理开启但应用设置了独立代理，也可能导致请求走错路径。</p><p>更换模式时一次只改一个选项，随后重新打开测试页面。若关闭客户端后网页仍然无法访问，检查系统代理是否残留，或另一个 VPN/过滤软件是否占用了网络接口。先恢复到明确的原始状态，再继续测试，避免多个客户端同时修改路由。</p><h2>区分 DNS 与节点故障</h2><p>DNS 负责把域名解析为网络地址。若客户端能连接节点但域名解析失败，可能表现为域名打不开而部分 IP 直连正常。检查客户端和系统采用的 DNS 设置，确认没有被旧配置、局域网过滤或安全软件覆盖。不要把陌生 DNS 地址随意粘贴进配置文件。</p><p>可以使用可信的 DNS 诊断工具观察解析是否成功，并对照服务商的客户端文档。Cloudflare 的 DNS 基础资料解释了解析器和域名查询的关系；诊断时只检查公开域名，不要上传含有订阅令牌或私人域名的配置。若所有域名解析均失败，先修复 DNS，再判断节点速度。</p><h2>检查规则是否把流量送错</h2><p>规则模式会根据域名或 IP 将流量分到代理、直连或拒绝策略。新导入的规则集、错误的自定义规则或过时的域名列表，可能让某个网站走直连而无法访问。查看客户端的连接日志，确认测试域名命中了哪条规则和哪个策略组。</p><p>为了定位问题，可临时在客户端里针对一个测试域名切换到明确的代理策略，再恢复原设置。不要为了所有网页都能打开而永久使用全局代理；这可能让本应直连的服务也改变网络路径。修改规则前备份配置，并确保只编辑自己理解的条目。</p><h2>按应用逐个定位</h2><p>如果只有一个应用打不开，确认它是否使用系统代理、是否需要单独的 VPN 权限，以及是否有自己的 DNS 或网络设置。浏览器能打开网页并不能证明游戏、会议软件或命令行程序也会走相同代理。参考应用的官方网络文档检查支持范围。</p><p>在 iPhone 或 iPad 上，VPN 配置由系统和相应客户端管理；查看设备设置里的 VPN 状态、配置权限和当前连接。Apple 的支持资料说明了 iPhone 上相关 VPN 与设备管理设置入口，适用于核对系统状态，不代表第三方服务自动兼容所有应用。</p><h2>留下安全的排障记录</h2><p>记录设备系统、客户端版本、节点名称、发生时间、受影响域名和日志中的错误类型。分享前删除订阅地址、账号 ID、令牌、内网域名和个人访问记录。客服通常只需要错误现象和节点标识，不需要完整配置或密码。</p><p>如果更换一个节点后恢复，说明问题可能与原节点或其路由有关；如果所有节点和应用都失败，进一步检查订阅是否到期、服务公告和本地网络。按一层一层的证据处理，比同时重装客户端、改 DNS 和清空规则更容易复原。</p><h2>下一步建议</h2><p>下一次出现问题时只改一个变量：先记录失败域名和规则命中，再检查 DNS 解析，然后对照单一节点。恢复后把有效步骤写下来；不要将包含订阅令牌的完整配置上传到在线诊断工具。</p><p>建议在一周或一个账期后复盘一次“机场显示已连接但网页打不开：系统代理、DNS与规则排查”对应的结果：哪些判断已经得到验证，哪些仍然只是服务商宣传，哪些变化来自本地网络或目标平台。复盘时保留日期和条件，删去无关的敏感数据，再决定继续使用、调整配置或更换方案。</p><h2>检查清单</h2><ul><li>先分清直连网络、所有应用和单一域名各自是否正常。</li><li>逐一核对系统代理、VPN 权限、DNS 和规则命中。</li><li>一次只改一个设置，并保留原配置便于回退。</li><li>排障记录删除密码、订阅令牌和私人域名。</li></ul></div>
+  <section class="article-faq"><h2>常见问题</h2><h3>客户端显示已连接就说明机场节点正常吗？</h3><p>不能只凭这一状态判断；还需确认域名解析、规则路由和目标应用的连接。</p></section>
+  <section class="references"><h2>参考资料</h2><ul><li><a href="https://developers.cloudflare.com/learning-paths/cybersafe/concepts/what-is-dns/" rel="noopener noreferrer">Cloudflare DNS 基础说明</a></li></ul></section>
+  <section class="related"><h2>相关文章</h2><ul><li><a href="airport-subscription-failure.html">机场订阅失败怎么办：地址无效、更新超时与节点不显示排查</a></li><li><a href="clash-rules.html">Clash规则分流详解：自定义规则与性能优化</a></li></ul></section>
+  <a class="back-link" href="../about/">返回科普知识</a>
+</article>
+<footer><p>© 2026 机场测评知识库 | 内容用于技术交流，请遵守当地法律法规</p></footer>
+</body>
+</html>
