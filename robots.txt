@@ -2,30 +2,11 @@
 
 User-agent: *
 Allow: /
-Disallow: /*-template.html$
 Disallow: /*.md$
 Disallow: /scratch/
 Disallow: /.git/
-
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Bytespider
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
+Disallow: /.github/
+Disallow: /scripts/
+Disallow: /node_modules/
 
 Sitemap: https://clash-vpns.com/sitemap.xml

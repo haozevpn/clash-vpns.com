@@ -20,15 +20,17 @@ function countExact(text, className) {
 }
 
 const indexPath = path.join(root, 'index.html');
+const directoryPath = path.join(root, 'airport-reviews', 'index.html');
 const rankingPath = path.join(root, 'rankings', 'index.html');
 const indexHtml = await readFile(indexPath, 'utf8');
+const directoryHtml = await readFile(directoryPath, 'utf8');
 const rankingHtml = await readFile(rankingPath, 'utf8');
 const knowledgeFiles = await readdir(path.join(root, 'knowledge'), { withFileTypes: true });
 const categoryFiles = await readdir(path.join(root, 'knowledge', 'categories'), { withFileTypes: true });
 
 const stats = {
   updated: beijingDate(),
-  airports: countExact(indexHtml, 'review-card'),
+  airports: countExact(directoryHtml, 'review-card'),
   recommendations: countExact(rankingHtml, 'ranking-card'),
   articles: knowledgeFiles.filter((entry) => entry.isFile() && entry.name.endsWith('.html')).length,
   categories: categoryFiles.filter((entry) => entry.isFile() && entry.name.endsWith('.html') && entry.name !== 'index.html').length,
@@ -37,14 +39,14 @@ const stats = {
 let output = indexHtml;
 output = output.replace(
   /(<time data-site-stat="updated" datetime=")[^"]+(">)[^<]+(<\/time>)/,
-  `$1${stats.updated}$2${stats.updated}$3`,
+  (_, opening, content, closing) => `${opening}${stats.updated}${content}${stats.updated}${closing}`,
 );
 
 for (const [key, value] of Object.entries(stats)) {
   if (key === 'updated') continue;
   output = output.replace(
     new RegExp(`(<(?:strong|span) data-site-stat="${key}">)\\d+(<\\/(?:strong|span)>)`),
-    `$1${value}$2`,
+    (_, opening, closing) => `${opening}${value}${closing}`,
   );
 }
 

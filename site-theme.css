@@ -1188,3 +1188,210 @@ footer {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+.seo-topic-hub {
+  width: calc(100% - 3rem);
+  max-width: 1232px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.hero-copy h1 .highlight {
+  white-space: nowrap;
+}
+
+.seo-topic-hub h2,
+.seo-brief h2,
+.seo-related h2 {
+  margin: 0 0 1rem;
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+
+.seo-topic-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.seo-topic-grid a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  color: #0f172a;
+  text-decoration: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.seo-topic-grid a:hover,
+.seo-topic-grid a:focus-visible {
+  border-color: #93c5fd;
+  box-shadow: 0 6px 20px rgb(15 23 42 / 8%);
+}
+
+.seo-topic-grid span,
+.seo-editorial,
+.seo-breadcrumb,
+.seo-article .article-meta {
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+.seo-editorial {
+  margin-top: 1rem;
+}
+
+.seo-brief,
+.seo-related,
+.seo-answer {
+  padding: 1.25rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+  line-height: 1.85;
+}
+
+.seo-brief {
+  margin: 0 0 1.5rem;
+}
+
+.seo-brief p + p {
+  margin-top: 0.75rem;
+}
+
+.seo-related {
+  margin: 2rem 0;
+}
+
+.seo-related ul,
+.seo-references ul {
+  padding-left: 1.25rem;
+}
+
+.article-container.seo-article {
+  max-width: 920px !important;
+  padding: 2rem 1.5rem 3rem;
+}
+
+.seo-breadcrumb {
+  margin-bottom: 1.5rem;
+  overflow-wrap: anywhere;
+}
+
+.seo-article .article-header {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.5rem;
+}
+
+.seo-article .article-meta {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.seo-article h1 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  line-height: 1.5;
+}
+
+.seo-article .article-content {
+  overflow-wrap: anywhere;
+  line-height: 1.9;
+}
+
+.seo-article .article-content h2 {
+  margin: 2rem 0 1rem;
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+.seo-article .article-content p {
+  margin-bottom: 1rem;
+}
+
+.seo-article .faq-item {
+  margin: 1rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.seo-article .faq-item h3 {
+  font-size: 1.1rem;
+  line-height: 1.75;
+}
+
+.seo-table-wrap {
+  max-width: 100%;
+  margin: 1.25rem 0;
+  overflow-x: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+.seo-table-wrap table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.seo-table-wrap th,
+.seo-table-wrap td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+  vertical-align: top;
+}
+
+.seo-table-wrap thead {
+  background: #eff6ff;
+}
+
+.seo-table-wrap tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+@media (max-width: 760px) {
+  .seo-topic-hub {
+    width: calc(100% - 1.5rem);
+    padding: 1rem;
+  }
+
+  .seo-topic-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .seo-topic-grid a {
+    padding: 0.75rem;
+  }
+
+  .seo-brief,
+  .seo-related,
+  .seo-answer {
+    padding: 1rem;
+  }
+
+  .ranking-card {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+
+  .ranking-card .ranking-info {
+    min-width: 150px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seo-topic-grid a {
+    transition: none;
+  }
+}

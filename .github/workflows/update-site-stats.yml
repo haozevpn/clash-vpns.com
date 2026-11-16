@@ -23,6 +23,9 @@ jobs:
       - name: Refresh site statistics
         run: node scripts/update-site-stats.mjs
 
+      - name: Check page metadata and links
+        run: node scripts/seo-audit.mjs
+
       - name: Commit refreshed statistics
         run: |
           if git diff --quiet -- index.html; then
